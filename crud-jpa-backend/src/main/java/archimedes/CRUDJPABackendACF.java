@@ -36,6 +36,9 @@ public class CRUDJPABackendACF
 	@Override
 	public boolean generate(String out) {
 		// Change to a Alexandrian model first.
+		// Move DatabaseSOToDataModelConverter from rest-acf project to
+		// archimedes-legacy? (if not possible copy it to this project).
+		// Create a GeneratorConfiguration class in Archimedes-Alexandrian
 		return false;
 	}
 
