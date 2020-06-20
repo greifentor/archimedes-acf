@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-        <groupId>archimedes</groupId>
+		<groupId>archimedes</groupId>
 		<artifactId>code-factories</artifactId>
 		<version>1.0.0</version>
 	</parent>
@@ -74,9 +74,20 @@
 			<version>1.3</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>de.ollie</groupId>
+			<artifactId>archimedes-legacy</artifactId>
+			<version>1.89.2</version>
+		</dependency>
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
