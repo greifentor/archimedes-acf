@@ -1,4 +1,4 @@
-package archimedes;
+package archimedes.backend.crudjpa;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,9 @@ import archimedes.legacy.acf.gui.StandardCodeFactoryProgressionFrameUser;
 import archimedes.legacy.checkers.ModelCheckerNoComplexPrimaryKey;
 import archimedes.model.CodeFactory;
 import archimedes.model.DataModel;
+import archimedes.model.converter.DataModelToSOConverter;
 import baccara.gui.GUIBundle;
+import de.ollie.archimedes.alexandrian.service.so.DatabaseSO;
 
 public class CRUDJPABackendACF
 		implements CodeFactory, CodeFactoryProgressionEventProvider, StandardCodeFactoryProgressionFrameUser {
@@ -25,7 +27,7 @@ public class CRUDJPABackendACF
 	private List<CodeFactoryProgressionListener> progressListeners = new ArrayList<>();
 
 	public static void main(String[] args) {
-		System.out.println(new CRUDJPABackendACF().getVersion());
+		System.out.println("CRUDJPABackendACF version: " + new CRUDJPABackendACF().getVersion());
 	}
 
 	@Override
@@ -35,11 +37,8 @@ public class CRUDJPABackendACF
 
 	@Override
 	public boolean generate(String out) {
-		// Change to a Alexandrian model first.
-		// Move DatabaseSOToDataModelConverter from rest-acf project to
-		// archimedes-legacy? (if not possible copy it to this project).
-		// Create a GeneratorConfiguration class in Archimedes-Alexandrian
-		return false;
+		DatabaseSO databaseSO = new DataModelToSOConverter().convert(this.dataModel);
+		return new CRUDJPABackendCodeFactory().generate(out, databaseSO);
 	}
 
 	@Override
