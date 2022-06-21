@@ -1,6 +1,7 @@
 package archimedes.backend.crudjpa;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import de.ollie.archimedes.alexandrian.service.so.DatabaseSO;
 
@@ -12,7 +13,7 @@ import de.ollie.archimedes.alexandrian.service.so.DatabaseSO;
  */
 public class CRUDJPABackendCodeFactory {
 
-	static Logger log = Logger.getLogger(CRUDJPABackendCodeFactory.class);
+	static Logger log = LogManager.getLogger(CRUDJPABackendCodeFactory.class);
 
 	/**
 	 * Generates the code for the CRUD JPA backend.
